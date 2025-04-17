@@ -73,13 +73,7 @@ fn main() {
     // Dump the schema directly to memory
     println!("Dumping schema...");
     let dump_output = Command::new("supabase")
-        .args([
-            "db",
-            "dump",
-            "--local",
-            "-s",
-            "public,private,api,async_trigger",
-        ])
+        .args(["db", "dump", "--local"])
         .current_dir(&supabase_dir)
         .stdout(Stdio::piped())
         .spawn()
